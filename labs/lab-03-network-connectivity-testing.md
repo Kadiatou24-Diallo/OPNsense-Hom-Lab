@@ -58,6 +58,13 @@ Result:
 - Network troubleshooting
 - Connectivity verification
 - Firewall validation
+- ## Screenshots
+
+### Ping to OPNsense
+Screenshot available in the screenshots folder.
+
+### Ping to Internet
+Screenshot available in the screenshots folder.
 
 ## Status
 ✅ Completed
