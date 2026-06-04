@@ -1,24 +1,62 @@
-# OPNsense-Hom-Lab
-Designing and documenting an OPNsense firewall lab for network security, traffic control, and cybersecurity analysis.
 # OPNsense Home Lab
 
 ## Overview
-This project documents the creation of my cybersecurity home lab using OPNsense firewall.
+This repository documents the development of my cybersecurity home lab using OPNsense as the central firewall.
 
-## Goals
-- Learn firewall configuration
-- Practice network security
-- Understand traffic monitoring
-- Build hands-on cybersecurity skills
-- Develop SOC analyst experience
+## Lab Objectives
+- Learn firewall administration
+- Practice network segmentation
+- Monitor and analyze network traffic
+- Develop hands-on cybersecurity skills
+- Build a professional cybersecurity portfolio
 
-## Technologies
+## Lab Architecture
+
+Internet
+    │
+    ▼
+VMnet8 (WAN)
+    │
+    ▼
+OPNsense Firewall
+    │
+    ▼
+VMnet1 (LAN)
+    │
+    ▼
+Kali Linux
+
+## Technologies Used
 - OPNsense
-- Virtual Machines
+- VMware Workstation
+- Kali Linux
 - Networking
 - Firewall Rules
+- DHCP
 - NAT
-- IDS/IPS
 
-## Project Status
-🚧 In Progress
+## Repository Structure
+
+- installation-notes/
+- configurations/
+- network-diagram/
+- labs/
+- screenshots/
+
+## Current Status
+✅ OPNsense installed
+
+✅ WAN and LAN configured
+
+✅ DHCP operational
+
+✅ Kali Linux connected to the LAN
+
+✅ Internet connectivity verified
+
+## Future Improvements
+- Ubuntu Client Integration
+- IDS/IPS Configuration
+- Traffic Monitoring
+- VPN Configuration
+- SIEM Integration
