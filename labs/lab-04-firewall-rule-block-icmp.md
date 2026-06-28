@@ -71,4 +71,17 @@ Result:
 ## Conclusion
 
 The firewall successfully blocked ICMP traffic originating from the LAN network after the rule was moved above the default allow rule.
+## Screenshots
+
+### Firewall Rule
+
+![Firewall Rule](screenshots/rule-created.png)
+
+### Rule Order
+
+![Rule Order](screenshots/rule-order.png)
+
+### ICMP Test
+
+![ICMP Test](screenshots/icmp-block-test.png)
 
