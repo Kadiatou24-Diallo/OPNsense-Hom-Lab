@@ -84,4 +84,13 @@ The firewall successfully blocked ICMP traffic originating from the LAN network 
 ### ICMP Test
 
 ![ICMP Test](screenshots/icmp-block-test.png)
+## Test Results
+
+### HTTP Block Test
+
+![HTTP Block Test](screenshots/http-block-test.png)
+
+Result:
+- HTTP (TCP/80): Blocked ✅
+- HTTPS (TCP/443): Allowed ✅
 
