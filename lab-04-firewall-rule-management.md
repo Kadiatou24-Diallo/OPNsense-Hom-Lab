@@ -93,4 +93,26 @@ The firewall successfully blocked ICMP traffic originating from the LAN network 
 Result:
 - HTTP (TCP/80): Blocked ✅
 - HTTPS (TCP/443): Allowed ✅
+  
+  ## Exercise 3 - Block SSH (TCP 22)
+
+### Objective
+
+Block SSH access from the LAN to improve security.
+
+### Firewall Rule
+
+- Action: Block
+- Protocol: TCP
+- Source: LAN net
+- Destination: Any
+- Destination Port: SSH (22)
+
+### Verification
+
+The SSH connection from the Kali machine to the OPNsense LAN interface was blocked successfully.
+
+![SSH Block Test](screenshots/ssh-block-test.png)
+
+**Result:** SSH connection timed out, confirming that the firewall rule works correctly.
 
