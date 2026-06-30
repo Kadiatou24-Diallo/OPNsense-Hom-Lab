@@ -198,4 +198,28 @@ Firewall aliases make rule management easier by grouping multiple IP addresses, 
 ## Result
 
 The firewall alias was successfully created and is ready to be used in firewall rules to block multiple insecure services with a single policy.
+## Firewall Rule
+
+The following firewall rule uses the **Block** alias to block multiple insecure services with a single rule.
+
+![Alias Rule](screenshots/alias-rule.png)
+## Verification
+
+The alias was successfully applied to the firewall rule.
+
+The following services were blocked:
+
+- FTP (21)
+- Telnet (23)
+- HTTP (80)
+
+### Test
+
+```bash
+curl http://neverssl.com
+```
+
+**Result:** Connection failed because HTTP (TCP 80) is included in the **Block** alias.
+
+![Alias Test](screenshots/alias-test.png)
 
