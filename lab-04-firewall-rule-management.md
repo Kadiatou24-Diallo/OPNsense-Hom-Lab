@@ -222,4 +222,39 @@ curl http://neverssl.com
 **Result:** Connection failed because HTTP (TCP 80) is included in the **Block** alias.
 
 ![Alias Test](screenshots/alias-test.png)
+---
+
+# Exercise 6 – Firewall Logging
+
+## Objective
+
+Enable logging on firewall rules and verify that blocked traffic is recorded in OPNsense logs.
+
+## Configuration
+
+Logging was enabled on the HTTP blocking rule by selecting:
+
+- Log packets that are handled by this rule
+
+## Verification
+
+A blocked HTTP request was generated from the Kali Linux machine:
+
+```bash
+curl http://neverssl.com
+```
+
+The blocked packet was successfully recorded in:
+
+Firewall → Log Files → Live View
+
+## Screenshot
+
+### Logging Enabled
+
+![Logging Enabled](screenshots/logging-enabled.png)
+
+### Firewall Live View
+
+![Firewall Log](screenshots/firewall-log.png)
 
