@@ -179,7 +179,7 @@ Firewall aliases make rule management easier by grouping multiple IP addresses, 
 
 ### Screenshot
 
-![Alias Rule](screenshots/alias-rule.png)
+![Firewall Alias](screenshots/firewall-alias.png)
 ## Blocked Ports
 
 | Port | Service | Status |
