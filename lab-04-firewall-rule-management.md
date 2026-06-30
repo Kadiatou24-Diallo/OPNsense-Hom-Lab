@@ -115,4 +115,28 @@ The SSH connection from the Kali machine to the OPNsense LAN interface was block
 ![SSH Block Test](screenshots/ssh-block-test.png)
 
 **Result:** SSH connection timed out, confirming that the firewall rule works correctly.
+## Exercise 4 - Allow HTTPS (TCP 443)
+
+### Objective
+
+Allow HTTPS traffic while HTTP remains blocked.
+
+### Firewall Rule
+
+- Action: Pass
+- Protocol: TCP
+- Source: LAN net
+- Destination: Any
+- Destination Port: HTTPS (443)
+
+### Firewall Configuration
+
+![Allow HTTPS Rule](screenshots/allow-https-rule.png)
+
+### Verification
+
+HTTPS test:
+
+```bash
+curl -I https://google.com
 
