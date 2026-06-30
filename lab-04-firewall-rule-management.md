@@ -158,5 +158,5 @@ curl http://neverssl.com
 
 **Result:** Connection failed because HTTP (TCP 80) is blocked by the firewall.
 
-![HTTPS and HTTP Test](screenshots/https-test.png)
+![HTTPS and HTTP Verification](screenshots/https-http-test.png)
 
