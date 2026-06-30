@@ -140,3 +140,23 @@ HTTPS test:
 ```bash
 curl -I https://google.com
 
+### Verification
+
+#### HTTPS Test
+
+```bash
+curl -I https://google.com
+```
+
+**Result:** Successful HTTP 301 response, confirming that HTTPS (TCP 443) is allowed.
+
+#### HTTP Test
+
+```bash
+curl http://neverssl.com
+```
+
+**Result:** Connection failed because HTTP (TCP 80) is blocked by the firewall.
+
+![HTTPS and HTTP Test](screenshots/https-test.png)
+
