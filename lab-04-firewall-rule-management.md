@@ -159,4 +159,44 @@ curl http://neverssl.com
 **Result:** Connection failed because HTTP (TCP 80) is blocked by the firewall.
 
 ![HTTPS and HTTP Verification](screenshots/https-http-test.png)
+---
+
+# Exercise 5 - Creating and Using Firewall Aliases
+
+## Objective
+
+Create a firewall alias to group multiple insecure ports into a single object and use it to simplify firewall rule management.
+
+## Why Use Aliases?
+
+Firewall aliases make rule management easier by grouping multiple IP addresses, networks, or ports into a single reusable object. Instead of creating multiple firewall rules, one alias can be referenced by a single rule.
+
+## Alias Configuration
+
+| Name | Type | Ports |
+|------|------|-------|
+| Block | Port(s) | 21, 23, 80 |
+
+### Screenshot
+
+![Firewall Alias](screenshots/firewall-alias.png)
+
+## Blocked Ports
+
+| Port | Service | Status |
+|------|----------|--------|
+| 21 | FTP | Blocked |
+| 23 | Telnet | Blocked |
+| 80 | HTTP | Blocked |
+
+## Benefits of Using Aliases
+
+- Simplifies firewall management.
+- Reduces the number of firewall rules.
+- Makes firewall policies easier to maintain.
+- Improves readability and administration.
+
+## Result
+
+The firewall alias was successfully created and is ready to be used in firewall rules to block multiple insecure services with a single policy.
 
