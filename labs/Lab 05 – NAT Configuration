@@ -1,0 +1,33 @@
+# Lab 05 – NAT Configuration
+
+## Objective
+
+Learn how to configure Network Address Translation (NAT) in OPNsense.
+
+## Environment
+
+- Firewall: OPNsense
+- Client: Kali Linux
+- WAN Interface
+- LAN Interface
+
+---
+
+# Exercise 1 – NAT Overview
+
+## Objective
+
+Explore the NAT configuration options available in OPNsense.
+
+## Procedure
+
+1. Open Firewall → NAT.
+2. Review the available NAT modes:
+   - Port Forward
+   - One-to-One
+   - Outbound
+   - NPt
+
+## Screenshot
+
+![NAT Overview](screenshots/nat-overview.png)
