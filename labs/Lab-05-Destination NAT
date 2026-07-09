@@ -1,0 +1,192 @@
+# Lab 05 - Destination NAT (Port Forwarding) on OPNsense
+## Objective
+The objective of this lab is to understand how Destination Network Address Translation (DNAT), also known as Port Forwarding, works in OPNsense.
+In this lab, a Python HTTP server running on a Kali Linux machine located on the LAN network is published through the WAN interface of OPNsense. An Ubuntu client on the WAN network accesses the web server using the firewall's WAN IP address, demonstrating how OPNsense translates the destination address and forwards incoming traffic to the internal server.
+## Network Topology
+
+The lab environment consists of one OPNsense firewall, one Kali Linux machine hosting a web server, one Ubuntu machine acting as the client, and a Windows host running VMware Workstation.
+
+The WAN interface of OPNsense is connected to **VMnet8 (NAT)**, allowing communication with the Ubuntu virtual machine. The LAN interface is connected to **VMnet1 (Host-Only)**, where the Kali Linux server is located.
+
+The objective is to publish the HTTP service running on Kali to the WAN network using a Destination NAT (Port Forwarding) rule.
+
+                               Internet
+                                   │
+                            Wi-Fi Router
+                           192.168.0.1
+                                   │
+                            Windows Host
+                          Wi-Fi: 192.168.0.105
+                                   │
+                        VMware VMnet8 (NAT)
+                         192.168.152.0/24
+                                   │
+                     WAN (em0) - OPNsense
+                        192.168.152.130
+                                   │
+                        ┌─────────────────┐
+                        │    OPNsense     │
+                        │    Firewall     │
+                        └─────────────────┘
+                                   │
+                     LAN (em1) - 192.168.105.2
+                                   │
+                    VMware VMnet1 (Host-Only)
+                         192.168.105.0/24
+                           │              │
+                           │              │
+                 Kali Linux            Ubuntu
+               192.168.105.19      192.168.152.132
+            (Python HTTP Server)     (Test Client)
+## Lab Environment
+
+The following virtual machines and network devices were used to build the Destination NAT (Port Forwarding) laboratory.
+
+| Device | Interface | IP Address | Role |
+|---------|-----------|------------|------|
+| Windows Host | Wi-Fi | 192.168.0.105 | VMware Workstation Host |
+| Wi-Fi Router | LAN | 192.168.0.1 | Internet Gateway |
+| OPNsense | WAN (em0) | 192.168.152.130 | Firewall WAN Interface |
+| OPNsense | LAN (em1) | 192.168.105.2 | Firewall LAN Gateway |
+| Kali Linux | eth0 | 192.168.105.19 | Internal Web Server |
+| Ubuntu | eth0 | 192.168.152.132 | Client used to test Port Forwarding |
+| VMware VMnet8 | NAT | 192.168.152.0/24 | Simulated WAN Network |
+| VMware VMnet1 | Host-Only | 192.168.105.0/24 | Internal LAN Network |
+## Prerequisites
+
+Before configuring Destination NAT (Port Forwarding), the following conditions were verified:
+
+- The Python HTTP server was running on the Kali Linux machine.
+- The Ubuntu virtual machine was configured as the client to test connectivity from the WAN network.
+- Network connectivity between the firewall interfaces and both virtual machines was verified.
+## Step 1: Start the HTTP Server on Kali Linux
+
+A simple HTTP server was started on the Kali Linux machine using Python. This server listens on TCP port **8080** and acts as the internal web service that will be published through OPNsense using Destination NAT.
+
+bash
+python3 -m http.server 8080
+```
+
+After executing the command, the server listens on all available interfaces.
+
+text
+Serving HTTP on 0.0.0.0 port 8080
+
+## Step 2: Configure the Ubuntu Test Client
+
+The Ubuntu virtual machine was connected to the **VMware VMnet8 (NAT)** network to simulate an external client located on the WAN side of the firewall.
+
+The Ubuntu machine obtained the following IP address:
+
+| Machine | IP Address | Network |
+|---------|------------|---------|
+| Ubuntu | 192.168.152.132 | VMnet8 (WAN) |
+
+This client was later used to verify that HTTP requests sent to the OPNsense WAN interface were successfully forwarded to the internal Kali Linux web server.
+## Step 3: Configure the Destination NAT Rule
+
+A Destination NAT (Port Forwarding) rule was created to allow HTTP traffic arriving at the WAN interface of OPNsense to be forwarded to the internal web server running on Kali Linux.
+
+The rule forwards TCP traffic received on port **8080** of the WAN interface to the Kali Linux server listening on the same port.
+
+The following configuration was applied:
+
+| Parameter | Value |
+|-----------|-------|
+| Interface | WAN |
+| Protocol | TCP |
+| Destination | WAN Address |
+| Destination Port | 8080 |
+| Redirect Target IP | 192.168.105.19 |
+| Redirect Target Port | 8080 |
+| Filter Rule Association | Pass |
+
+After creating the rule, the configuration was saved and applied.
+### Destination NAT Traffic Flow
+
+When the Ubuntu client sends an HTTP request to the WAN interface of OPNsense, the firewall checks the Destination NAT rules.
+
+If the destination matches the configured rule, OPNsense replaces the destination IP address with the internal IP address of the Kali Linux server before forwarding the packet.
+
+
+Before Destination NAT
+
+Source      : 192.168.152.132
+Destination : 192.168.152.130:8080
+
+After Destination NAT
+Source      : 192.168.152.132
+Destination : 192.168.105.19:8080
+
+Only the destination address is translated. The source address remains unchanged because the client identity must be preserved.
+
+## Step 4: Verify the Destination NAT Configuration
+
+After applying the Destination NAT rule, the Ubuntu virtual machine was used to verify that external clients could successfully access the internal web server.
+
+The Ubuntu machine, connected to the WAN network, opened a web browser and accessed the following URL:
+
+http://192.168.152.130:8080
+
+The request was sent to the WAN interface of OPNsense. The firewall matched the Destination NAT rule and forwarded the request to the internal Kali Linux web server.
+
+The browser successfully displayed the Python HTTP server directory listing, confirming that the Destination NAT rule was working correctly.
+### Packet Flow Analysis
+
+The HTTP request followed the path below:
+
+
+Ubuntu Client
+192.168.152.132
+        │
+        │ HTTP Request
+        ▼
+OPNsense WAN
+192.168.152.130
+        │
+        │ Destination NAT
+        ▼
+Kali Linux
+192.168.105.19
+
+
+When the packet arrived at the WAN interface, OPNsense evaluated the Destination NAT rules and found a matching rule for TCP port **8080**.
+
+The firewall replaced the destination IP address from **192.168.152.130** to **192.168.105.19** while preserving the original source IP address (**192.168.152.132**).
+
+The request was then forwarded to the Kali Linux HTTP server, which generated the HTTP response and returned it to the client through OPNsense.
+## Results
+
+The Destination NAT configuration was successfully validated.
+
+The following objectives were achieved:
+
+- Successfully published an internal HTTP server through the OPNsense WAN interface.
+- Verified that HTTP traffic arriving on TCP port **8080** was correctly forwarded to the Kali Linux server.
+- Confirmed that OPNsense translated the destination IP address while preserving the original client IP address.
+- Successfully accessed the Python HTTP server from the Ubuntu client using the OPNsense WAN IP address.
+## Lessons Learned
+## Key Takeaways
+
+This lab provided a practical understanding of how Destination Network Address Translation (DNAT), also known as Port Forwarding, operates in OPNsense.
+
+The following concepts were successfully demonstrated:
+
+- Destination NAT enables external clients to access services hosted on internal network devices.
+- OPNsense inspects incoming packets on the WAN interface before applying NAT rules.
+- During Destination NAT, only the **destination IP address** is translated, while the source IP address remains unchanged.
+- Port Forwarding allows internal services to be published without exposing the server's private IP address.
+- Verifying the configuration from a client located on the WAN network confirms that the NAT rule is functioning correctly.
+
+## Conclusion
+
+In this lab, Destination NAT (Port Forwarding) was successfully implemented using OPNsense.
+
+A Python HTTP server running on the Kali Linux machine was published through the WAN interface of the firewall. HTTP requests originating from the Ubuntu client were correctly translated and forwarded to the internal web server.
+
+## References
+
+- OPNsense Documentation – Firewall NAT
+- Python Documentation – http.server Module
+- VMware Workstation Documentation
+This exercise demonstrated how OPNsense performs destination address translation while maintaining secure communication between different network segments. The successful verification confirms that the firewall is correctly forwarding external traffic to an internal service.
