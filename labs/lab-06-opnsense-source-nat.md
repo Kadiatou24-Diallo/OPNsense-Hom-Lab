@@ -59,6 +59,32 @@ This lab demonstrates how to configure Source Network Address Translation (SNAT)
                      Ubuntu
                  192.168.152.132
                (Connected to VMnet8)
+               ## Configuration Steps
+
+### Step 1: Start the HTTP Server on Kali Linux
+
+Before configuring Source NAT, a Python HTTP server was started on the Kali Linux virtual machine. This server listens on TCP port **8080** and is used to verify network connectivity during the lab.
+
+Run the following command on Kali Linux:
+
+
+python3 -m http.server 8080
+
+
+After executing the command, the server starts listening on all network interfaces.
+
+
+Serving HTTP on 0.0.0.0 port 8080 (http://0.0.0.0:8080/)
+
+
+**Expected Result**
+
+The Python HTTP server starts successfully and waits for incoming HTTP requests on TCP port **8080**.
+
+**Screenshot**
+
+> Figure 1: Python HTTP server running on Kali Linux.
+> ![Python HTTP Server](../screenshots/lab06/python-http-server.png)
 ### Step 2: Configure Hybrid Outbound NAT
 
 Log in to the OPNsense web interface and navigate to:
@@ -79,15 +105,17 @@ Hybrid mode is enabled, allowing both automatic and manually created Source NAT 
 **Screenshot**
 
 > Figure 2: Hybrid Outbound NAT mode enabled.
+> ![Hybrid Outbound NAT](../screenshots/lab06/hybrid-outbound-nat.png)
+
 > ### Step 3: Create a Manual Source NAT Rule
 
 After enabling Hybrid Outbound NAT mode, a manual Source NAT rule was created for the Kali Linux virtual machine.
 
 Navigate to:
 
-```text
+
 Firewall → NAT → Outbound
-```
+
 
 Click **+ Add** and configure the following parameters:
 
@@ -112,6 +140,8 @@ A manual Source NAT rule is successfully added to the Outbound NAT table and wil
 **Screenshot**
 
 > Figure 3: Manual Source NAT rule configured in OPNsense.
+> ![Source NAT Rule](../screenshots/lab06/source-nat-rule.png)
+
 > ## Testing and Verification
 
 After applying the manual Source NAT rule, several tests were performed to verify that the configuration was working correctly.
@@ -135,6 +165,8 @@ The Python HTTP server displays the **Directory Listing** page, confirming that 
 **Screenshot**
 
 > Figure 4: Ubuntu successfully accessing the Python HTTP server through the OPNsense firewall.
+> ![Ubuntu Test](../screenshots/lab06/ubuntu-http-test.png)
+
 > ### Test 2: Verify Firewall States
 
 To confirm that Source NAT was being applied correctly, the active firewall states were examined.
@@ -154,6 +186,8 @@ The firewall state entry confirms that the Source NAT rule is active and that tr
 **Screenshot**
 
 > Figure 5: Firewall states showing the active Source NAT session.
+> ![Firewall States](../screenshots/lab06/firewall-states.png)
+
 > ## Packet Flow Analysis
 
 The packet processing sequence is illustrated below.
