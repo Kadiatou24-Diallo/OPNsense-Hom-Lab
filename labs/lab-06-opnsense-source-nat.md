@@ -105,7 +105,7 @@ Hybrid mode is enabled, allowing both automatic and manually created Source NAT 
 **Screenshot**
 
 > Figure 2: Hybrid Outbound NAT mode enabled.
-> ![Hybrid Outbound NAT](../screenshots/lab06/hybrid-outbound-nat.png)
+> ![Hybrid Outbound NAT]([../screenshots/lab06/hybrid-outbound-nat.png](https://github.com/Kadiatou24-Diallo/OPNsense-Hom-Lab/blob/main/screenshots/Hybrid%20Outbound%20NAT%20mode%20enabled.png)
 
 > ### Step 3: Create a Manual Source NAT Rule
 
