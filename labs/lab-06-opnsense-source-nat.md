@@ -84,7 +84,7 @@ The Python HTTP server starts successfully and waits for incoming HTTP requests 
 **Screenshot**
 
 > Figure 1: Python HTTP server running on Kali Linux.
-> ![Python HTTP Server](../screenshots/lab06/python-http-server.png)
+> ![Python HTTP Server](../screenshots/Python HTTP server running on Kali Linux.png)
 ### Step 2: Configure Hybrid Outbound NAT
 
 Log in to the OPNsense web interface and navigate to:
