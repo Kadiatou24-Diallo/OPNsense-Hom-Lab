@@ -140,7 +140,7 @@ A manual Source NAT rule is successfully added to the Outbound NAT table and wil
 **Screenshot**
 
 > Figure 3: Manual Source NAT rule configured in OPNsense.
-> ![Source NAT Rule](../screenshots/lab06/source-nat-rule.png)
+> ![Source NAT Rule](../screenshots/source-nat-rule.png)
 
 > ## Testing and Verification
 
@@ -165,7 +165,7 @@ The Python HTTP server displays the **Directory Listing** page, confirming that 
 **Screenshot**
 
 > Figure 4: Ubuntu successfully accessing the Python HTTP server through the OPNsense firewall.
-> ![Ubuntu Test](../screenshots/lab06/ubuntu-http-test.png)
+> ![Ubuntu Test](../screenshots/ubuntu-http-test.png)
 
 > ### Test 2: Verify Firewall States
 
@@ -186,7 +186,7 @@ The firewall state entry confirms that the Source NAT rule is active and that tr
 **Screenshot**
 
 > Figure 5: Firewall states showing the active Source NAT session.
-> ![Firewall States](../screenshots/lab06/firewall-states.png)
+> ![Firewall States](../screenshots/firewall-states.png)
 
 > ## Packet Flow Analysis
 
