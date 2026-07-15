@@ -359,4 +359,4 @@ The **SSH_PORT** alias is successfully created and appears in the Firewall Alias
 
 **Figure 9: Port Alias – SSH_PORT**
 
-![Port Alias – SSH_PORT](../screenshots/lab07/port-alias-ssh-port.png)
+![Port Alias – SSH_PORT](../screenshots/port-alias-ssh-port.png)
