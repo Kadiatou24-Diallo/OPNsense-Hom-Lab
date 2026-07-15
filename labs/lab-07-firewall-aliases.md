@@ -111,7 +111,7 @@ Configure the following Host alias:
 
 **Figure 2: Host Alias - KALI**
 
-![Host Alias - KALI](../screenshots/lab07/host-alias-kali.png)
+![Host Alias - KALI](../screenshots/host-alias-kali.png)
 
 ### Step 3: Create Host Alias - UBUNTU
 
@@ -145,7 +145,7 @@ The **UBUNTU** alias is successfully created and displayed in the Firewall Alias
 
 **Figure 3: Host Alias – UBUNTU**
 
-![Host Alias – UBUNTU](../screenshots/lab07/host-alias-ubuntu.png)
+![Host Alias – UBUNTU](../screenshots/host-alias-ubuntu.png)
 
 ### Step 4: Create Host Alias - OPNSENSE_LAN
 
@@ -179,7 +179,7 @@ The **OPNSENSE_LAN** alias is successfully created and appears in the Firewall A
 
 **Figure 4: Host Alias – OPNSENSE_LAN**
 
-![Host Alias – OPNSENSE_LAN](../screenshots/lab07/host-alias-opnsense-lan.png)
+![Host Alias – OPNSENSE_LAN](../screenshots/host-alias-opnsense-lan.png)
 
 ### Step 5: Create Host Alias - OPNSENSE_WAN
 
@@ -213,7 +213,7 @@ The **OPNSENSE_WAN** alias is successfully created and appears in the Firewall A
 
 **Figure 5: Host Alias – OPNSENSE_WAN**
 
-![Host Alias – OPNSENSE_WAN](../screenshots/lab07/host-alias-opnsense-wan.png)
+![Host Alias – OPNSENSE_WAN](../screenshots/host-alias-opnsense-wan.png)
 
 ### Step 6: Create Network Alias - LAN_NETWORK
 
@@ -247,7 +247,7 @@ The **LAN_NETWORK** alias is successfully created and appears in the Firewall Al
 
 **Figure 6: Network Alias – LAN_NETWORK**
 
-![Network Alias – LAN_NETWORK](../screenshots/lab07/network-alias-lan.png)
+![Network Alias – LAN_NETWORK](../screenshots/network-alias-lan.png)
 
 ### Step 7: Create Network Alias - WAN_NETWORK
 
@@ -281,7 +281,7 @@ The **WAN_NETWORK** alias is successfully created and appears in the Firewall Al
 
 **Figure 7: Network Alias – WAN_NETWORK**
 
-![Network Alias – WAN_NETWORK](../screenshots/lab07/network-alias-wan.png)
+![Network Alias – WAN_NETWORK](../screenshots/network-alias-wan.png)
 
 ### Step 8: Create Port Alias - WEB_PORTS
 
@@ -325,7 +325,7 @@ The **WEB_PORTS** alias is successfully created and appears in the Firewall Alia
 
 **Figure 8: Port Alias – WEB_PORTS**
 
-![Port Alias – WEB_PORTS](../screenshots/lab07/port-alias-web-ports.png)
+![Port Alias – WEB_PORTS](../screenshots/port-alias-web-ports.png)
 
 ### Step 9: Create Port Alias - SSH_PORT
 
