@@ -96,7 +96,7 @@ The Firewall Aliases page is displayed successfully.
 **Screenshot**
 
 > Figure 1: Firewall Aliases page.
-> ![Firewall Aliases Overview](../screenshots/lab07/aliases-overview.png)
+> ![Firewall Aliases Overview](../screenshots/aliases-overview.png)
 
 > ### Step 2: Create Host Alias - KALI
 
