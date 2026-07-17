@@ -392,3 +392,37 @@ All aliases are successfully displayed in the Firewall Aliases table and are rea
 **Figure 10: Firewall Aliases Overview**
 
 ![Firewall Aliases Overview](../screenshots/aliases-overview.png)
+
+## Results
+
+The Firewall Aliases were successfully created and organized into three categories: Host aliases, Network aliases, and Port aliases.
+
+A total of eight aliases were configured during this lab:
+
+- Four Host aliases
+- Two Network aliases
+- Two Port aliases
+
+All aliases were successfully enabled and verified in the Firewall Aliases table. The configured aliases are now available for use in future firewall rules, making firewall policies easier to read, manage, and maintain.
+
+This configuration establishes a reusable object-based approach for future firewall administration instead of relying on IP addresses and port numbers directly.
+
+## Key Learning Points
+
+During this lab, the following concepts were learned:
+
+- Firewall Aliases simplify firewall rule management.
+- Host aliases represent individual devices.
+- Network aliases represent entire subnets.
+- Port aliases group multiple service ports into reusable objects.
+- Using aliases improves firewall rule readability and maintainability.
+- Changes to IP addresses or ports can be managed by updating the alias instead of modifying multiple firewall rules.
+- Firewall aliases are considered a best practice in enterprise firewall administration.
+
+## Conclusion
+
+In this lab, Firewall Aliases were successfully configured in OPNsense.
+
+Host, Network, and Port aliases were created to replace IP addresses, network addresses, and service ports with meaningful names. This approach improves firewall policy readability, simplifies administration, and reduces configuration complexity.
+
+The aliases created in this lab will be reused throughout the upcoming OPNsense laboratories, including Firewall Rules, Logging, Packet Capture, and Suricata IDS/IPS.
