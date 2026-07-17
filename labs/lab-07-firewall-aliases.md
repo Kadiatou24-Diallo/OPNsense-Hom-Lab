@@ -360,3 +360,35 @@ The **SSH_PORT** alias is successfully created and appears in the Firewall Alias
 **Figure 9: Port Alias – SSH_PORT**
 
 ![Port Alias – SSH_PORT](../screenshots/port-alias-ssh-port.png)
+
+## Testing and Verification
+
+After creating all Host, Network, and Port aliases, the Firewall Aliases page was reviewed to verify that each alias was successfully created and enabled.
+
+The following aliases were verified:
+
+| Alias | Type | Status |
+|--------|------|--------|
+| KALI | Host(s) | Enabled |
+| UBUNTU | Host(s) | Enabled |
+| OPNSENSE_LAN | Host(s) | Enabled |
+| OPNSENSE_WAN | Host(s) | Enabled |
+| LAN_NETWORK | Network(s) | Enabled |
+| WAN_NETWORK | Network(s) | Enabled |
+| WEB_PORTS | Port(s) | Enabled |
+| SSH_PORT | Port(s) | Enabled |
+
+Each alias was checked to confirm that:
+
+- The alias name was correct.
+- The selected alias type matched its purpose.
+- The configured IP address, network, or port values were accurate.
+- The alias was enabled and available for future firewall rules.
+
+**Expected Result**
+
+All aliases are successfully displayed in the Firewall Aliases table and are ready to be used in future firewall policies.
+
+**Figure 10: Firewall Aliases Overview**
+
+![Firewall Aliases Overview](../screenshots/aliases-overview.png)
