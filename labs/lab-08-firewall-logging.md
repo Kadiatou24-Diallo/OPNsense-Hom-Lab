@@ -81,7 +81,7 @@ The Live View page displays firewall events in real time, allowing administrator
 
 > Figure 1: OPNsense Firewall Live View.
 
-![Firewall Live View](../screenshots/lab08/firewall-live-view.png)
+![Firewall Live View](../screenshots/firewall-live-view.png)
 ### Step 2: Analyze Firewall Log Entries
 
 Each firewall log entry contains important information that helps identify how the firewall processed a network packet.
@@ -102,7 +102,7 @@ These fields provide the information required to investigate network connectivit
 
 > Figure 2: Firewall log entries displayed in Live View.
 
-![Firewall Log Entries](../screenshots/lab08/firewall-log-entries.png)
+![Firewall Log Entries](../screenshots/firewall-log-entries.png)
 
 ### Step 3: Filter Allowed Traffic
 
@@ -120,7 +120,7 @@ This filtering technique is commonly used to verify successful network communica
 
 > Figure 3: Filtering firewall logs to display only allowed traffic.
 
-![Allowed Traffic Filter](../screenshots/lab08/pass-filter.png)
+![Allowed Traffic Filter](../screenshots/pass-filter.png)
 
 ### Step 4: Filter Blocked Traffic
 
@@ -138,7 +138,7 @@ Analyzing blocked events helps administrators identify unauthorized traffic, con
 
 > Figure 4: Filtering firewall logs to display blocked traffic.
 
-![Blocked Traffic Filter](../screenshots/lab08/block-filter.png)
+![Blocked Traffic Filter](../screenshots/block-filter.png)
 
 ### Step 5: Filter TCP Traffic
 
@@ -154,7 +154,7 @@ The filtered events displayed TCP packets processed by the firewall. Most entrie
 
 > Figure 5: TCP traffic displayed in Live View.
 
-![TCP Traffic Filter](../screenshots/lab08/tcp-filter.png)
+![TCP Traffic Filter](../screenshots/tcp-filter.png)
 
 ### Step 6: Filter UDP Traffic
 
@@ -172,7 +172,7 @@ Filtering traffic by protocol helps administrators isolate specific communicatio
 
 > Figure 6: UDP traffic displayed in Live View.
 
-![UDP Traffic Filter](../screenshots/lab08/udp-filter.png)
+![UDP Traffic Filter](../screenshots/udp-filter.png)
 
 ## Testing and Verification
 
