@@ -82,7 +82,7 @@ The Packet Capture utility allows administrators to capture network packets dire
 
 **Figure 1: OPNsense Packet Capture Page**
 
-![Packet Capture](../screenshots/lab09/packet-capture-page.png)
+![Packet Capture](../screenshots/packet-capture-page.png)
 
 ## Step 2: Configure the Packet Capture
 
@@ -104,7 +104,7 @@ These settings allow OPNsense to capture HTTP traffic exchanged between the clie
 
 **Figure 2: Packet Capture Configuration**
 
-![Packet Capture Configuration](../screenshots/lab09/packet-capture-configuration.png)
+![Packet Capture Configuration](../screenshots/packet-capture-configuration.png)
 
 ## Step 3: Generate HTTP Traffic
 
@@ -118,7 +118,7 @@ The HTTP request generated TCP packets, an HTTP GET request, and the correspondi
 
 **Figure 3: HTTP Traffic Generation**
 
-![HTTP Traffic Generation](../screenshots/lab09/http-traffic-generation.png)
+![HTTP Traffic Generation](../screenshots/http-traffic-generation.png)
 
 # Part 2 – Packet Analysis with Wireshark
 
@@ -136,7 +136,7 @@ The Wireshark interface consists of three main sections:
 
 **Figure 4: Packet Capture Opened in Wireshark**
 
-![Wireshark Overview](../screenshots/lab09/wireshark-overview.png)
+![Wireshark Overview](../screenshots/wireshark-overview.png)
 
 ## Step 5: Analyze the TCP Three-Way Handshake
 
@@ -152,7 +152,7 @@ This process ensures that both systems are ready before data transmission begins
 
 **Figure 5: TCP Three-Way Handshake**
 
-![TCP Handshake](../screenshots/lab09/tcp-three-way-handshake.png)
+![TCP Handshake](../screenshots/tcp-three-way-handshake.png)
 
 ## Step 6: Analyze the HTTP Communication
 
@@ -174,7 +174,7 @@ The packet capture demonstrates the complete HTTP communication between the clie
 
 **Figure 6: HTTP GET Request and HTTP 200 OK Response**
 
-![HTTP Communication](../screenshots/lab09/http-communication.png)
+![HTTP Communication](../screenshots/http-communication.png)
 
 ## Step 7: Analyze TCP Connection Termination
 
@@ -186,7 +186,7 @@ This behavior confirms that the HTTP session completed successfully without pack
 
 **Figure 7: TCP Connection Termination**
 
-![TCP Connection Termination](../screenshots/lab09/tcp-termination.png)
+![TCP Connection Termination](../screenshots/tcp-termination.png)
 
 # Part 3 – Packet Capture on the LAN Interface
 
@@ -205,7 +205,7 @@ The capture demonstrated successful communication between the client and the web
 
 **Figure 8: Packet Capture on the LAN Interface**
 
-![LAN Packet Capture](../screenshots/lab09/lan-packet-capture.png)
+![LAN Packet Capture](../screenshots/lan-packet-capture.png)
 
 # Part 4 – Packet Capture on the WAN Interface
 
@@ -218,7 +218,7 @@ The capture successfully recorded the complete TCP and HTTP communication betwee
 Unlike the LAN capture, the WAN capture clearly showed the original source IP address of the Ubuntu workstation (**192.168.152.132**), demonstrating how packet visibility depends on the selected capture interface.
 
 **Figure 9: Packet Capture on the WAN Interface**
-![WAN Packet Capture](../screenshots/lab09/wan-packet-capture.png)
+![WAN Packet Capture](../screenshots/wan-packet-capture.png)
 
 # Part 5 – Traffic Comparison
 
