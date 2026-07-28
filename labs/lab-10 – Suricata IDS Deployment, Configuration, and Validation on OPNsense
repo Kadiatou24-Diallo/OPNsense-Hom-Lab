@@ -194,7 +194,7 @@ Each tab plays an important role during the deployment and operation of Suricata
 
 The screenshot below presents the different tabs available in the Intrusion Detection module.
 
-![Intrusion Detection Interface](../screenshots/lab10/02-intrusion-detection-interface.png)
+![Intrusion Detection Interface](../screenshots/02-intrusion-detection-interface.png)
 ## Step 3: Configuring the IDS Engine
 
 Before downloading any signatures, the IDS engine was configured.
