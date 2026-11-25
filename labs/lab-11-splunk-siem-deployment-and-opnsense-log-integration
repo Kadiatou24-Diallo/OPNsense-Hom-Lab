@@ -160,7 +160,7 @@ The search results confirm that OPNsense firewall logs are successfully forwarde
 
 **Screenshot – Splunk Log Reception**
 
-s![Splunk Log Reception](../screenshots/6.1-splunk-log-reception.png)
+![Splunk Log Reception](../../screenshots/6.1-splunk-log-reception.png)
 
 
 
