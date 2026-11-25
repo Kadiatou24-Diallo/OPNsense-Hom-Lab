@@ -1,0 +1,133 @@
+## 1. Overview
+
+In this lab, Splunk Enterprise is deployed as a SIEM solution to collect and centralize security logs from the OPNsense firewall.
+
+The integration allows OPNsense to forward its system and firewall logs to Splunk through remote syslog. These logs can then be searched and analyzed from a centralized interface to monitor network activity and support security investigations.
+
+This lab builds on the previous Suricata IDS deployment and introduces centralized security log management using Splunk.
+## 2. Objectives
+
+The objectives of this lab are to:
+
+- Deploy Splunk Enterprise as a SIEM platform.
+- Configure Splunk to receive syslog data through UDP.
+- Configure OPNsense to forward firewall logs to Splunk.
+- Centralize firewall logs for security monitoring.
+- Explore how centralized logging supports network security monitoring and incident investigation.
+## 3. Prerequisites
+
+### Hardware Requirements
+- A computer with at least 16 GB of RAM.
+- Sufficient disk space to run the virtual machines and Splunk Enterprise.
+
+### Software and Tools
+- VMware Workstation.
+- OPNsense Firewall.
+- Ubuntu 26.04 LTS (Splunk server).
+- Splunk Enterprise 10.6.1.
+- Kali Linux.
+- A web browser for accessing the Splunk Web Interface.
+
+### Network Requirements
+- Configured VMware virtual networks (VMnet1 and VMnet8).
+- Network connectivity between OPNsense and the Ubuntu server.
+- UDP port 1514 configured for syslog communication.
+
+### Prior Knowledge
+- Basic networking concepts.
+- Firewall configuration and log management.
+- Basic Linux command-line operations.
+## 4. Lab Environment and Network Topology
+
+### 4.1 Lab Environment
+
+The lab consists of the following virtual machines and network components:
+
+| Component | Operating System / Type | IP Address |
+|---|---|---|
+| Windows Host | Windows | 192.168.0.105 |
+| VMware VMnet8 | NAT Network | 192.168.152.1 |
+| OPNsense WAN (em0) | Firewall Interface | 192.168.152.130 |
+| OPNsense LAN (em1) | Firewall Interface | 192.168.105.2 |
+| VMware VMnet1 | Host-Only Network | 192.168.105.68 |
+| Kali Linux | Linux | 192.168.105.19 |
+| Ubuntu Server | Ubuntu 26.04 LTS | 192.168.152.132 |
+
+### 4.2 Network Topology
+
+The existing VMware environment is used for this lab. OPNsense acts as the firewall, while Ubuntu Server hosts Splunk Enterprise.
+
+OPNsense forwards its logs to the Splunk server using remote syslog over UDP port 1514.
+
+### 4.3 Splunk Server
+
+- **Platform:** Ubuntu 26.04 LTS
+- **IP Address:** 192.168.152.132
+- **Splunk Version:** 10.6.1
+- **Web Interface:** http://192.168.152.132:8000
+- **Syslog Input:** UDP port 1514
+- **Index:** main
+- **Source Type:** syslog
+
+## 5. Configuration
+
+### 5.1 Splunk Enterprise Configuration
+
+Splunk Enterprise 10.6.1 was installed on the Ubuntu 26.04 LTS virtual machine (192.168.152.132).
+
+After installation, Splunk was initialized with an administrator account and started as a service.
+
+The Splunk Web Interface is accessible through:
+
+`http://192.168.152.132:8000`
+
+**Syslog Input Configuration**
+
+A UDP input was created in Splunk to receive logs forwarded by OPNsense.
+
+| Parameter | Configuration |
+|---|---|
+| Input Type | UDP |
+| Port | 1514 |
+| Source Type | syslog |
+| Index | main |
+| App Context | Search & Reporting |
+
+The UDP input allows Splunk to listen for incoming syslog messages from the OPNsense firewall.
+
+### 5.2 OPNsense Remote Logging Configuration
+
+OPNsense was configured to forward its system and firewall logs to the Splunk server using remote syslog.
+
+The configuration was performed under:
+
+`System → Settings → Logging → Remote`
+
+The following parameters were configured:
+
+| Parameter | Configuration |
+|---|---|
+| Transport | UDP (4) |
+| Applications | Select All |
+| Levels | Select All |
+| Facilities | Select All |
+| Destination Host | 192.168.152.132 |
+| Destination Port | 1514 |
+
+This configuration enables OPNsense to transmit its selected system and firewall logs to the Splunk server over UDP port 1514.
+
+### 5.3 Configuration Summary
+
+At this stage, Splunk Enterprise and OPNsense have been configured to support centralized log collection.
+
+The following configuration components are in place:
+
+- Splunk Enterprise installed on Ubuntu Server.
+- Splunk administrator account initialized.
+- UDP input configured on port 1514.
+- Source type set to `syslog`.
+- Destination index set to `main`.
+- OPNsense remote logging configured to forward logs to the Splunk server.
+- Remote syslog communication configured using UDP.
+
+The environment is now configured for centralized collection of OPNsense system and firewall logs.
