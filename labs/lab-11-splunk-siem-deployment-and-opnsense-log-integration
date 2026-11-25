@@ -131,3 +131,34 @@ The following configuration components are in place:
 - Remote syslog communication configured using UDP.
 
 The environment is now configured for centralized collection of OPNsense system and firewall logs.
+### 6.1 Verify Log Reception in Splunk
+
+To verify the integration, the following search query was executed in Splunk Search & Reporting:
+
+```spl
+index=main sourcetype=syslog
+```
+
+**Results:**
+
+Splunk successfully received 3,342 events from the OPNsense firewall.
+
+The collected events contain the following information:
+
+| Field | Observed Value |
+|---|---|
+| Source IP | 192.168.152.130 |
+| Source | udp:1514 |
+| Sourcetype | syslog |
+| Index | main |
+| Log Source | filterlog |
+| Interfaces | em0 and em1 |
+
+The search results confirm that OPNsense firewall logs are successfully forwarded to Splunk through UDP port 1514.
+
+**Status:** Successful log collection.
+
+**Screenshot – Splunk Log Reception**
+
+![Splunk successfully receiving OPNsense firewall logs](screenshots/6.1-splunk-log-reception.png)
+
