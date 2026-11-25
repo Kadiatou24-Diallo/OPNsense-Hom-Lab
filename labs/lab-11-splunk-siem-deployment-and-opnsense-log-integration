@@ -159,8 +159,8 @@ The search results confirm that OPNsense firewall logs are successfully forwarde
 **Status:** Successful log collection.
 
 **Screenshot – Splunk Log Reception**
+![Splunk Log Reception](https://raw.githubusercontent.com/Kadiatou24-Diallo/OPNsense-Hom-Lab/main/screenshots/6.1-splunk-log-reception.png)
 
-![Splunk Log Reception](../../screenshots/6.1-splunk-log-reception.png)
 
 
 
